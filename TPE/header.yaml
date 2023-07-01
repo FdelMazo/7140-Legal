@@ -1,0 +1,55 @@
+---
+title: |
+  | ![](https://user-images.githubusercontent.com/25667102/250180764-a269adf6-4c17-4fd5-bbf8-7f468af3dcce.jpg){ width=2.7in }
+  |
+  | Trabajo Práctico Especial
+subtitle: |
+  | Facultad de Ingeniería, Universidad de Buenos Aires
+  | [71.40] Legislación y Ejercicio Profesional de la Ingeniería en Informática
+date: 6 de julio de 2023
+author: Federico del Mazo - 100029
+
+geometry: margin=2.5cm
+titlepage: true
+toc: true
+toc-title: "Índice"
+toc-depth: 2
+colorlinks: true
+urlcolor: RoyalBlue
+
+header-includes: |
+  \usepackage{fancyhdr, xcolor, listings, framed, fvextra, caption, float}
+  \pagestyle{fancy}
+  \fancyhead[L]{[71.40] TPE \\ del Mazo, Federico}
+  \fancyhead[R]{2023C1 \\}
+
+  \captionsetup[figure]{labelformat=empty}
+
+  \let\OldTexttt\texttt
+  \renewcommand{\texttt}[1]{\OldTexttt{\color{magenta}{#1}}}
+
+  \let\origfigure\figure
+  \let\endorigfigure\endfigure
+  \renewenvironment{figure}[1][2] {
+      \expandafter\origfigure\expandafter[H]
+  } {
+      \endorigfigure
+  }
+
+include-before: |
+  \newenvironment{leftbar_mod}[1]{
+  \def\FrameCommand{{\color{#1}\vrule width 1pt} \hspace{10pt}}
+  \MakeFramed {\advance\hsize-\width \FrameRestore}}
+  {\endMakeFramed}
+
+  \ifcsname Shaded\endcsname
+    \let\oldshaded\Shaded
+    \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
+    \renewenvironment{Shaded}{\begin{leftbar_mod}{magenta}\begin{oldshaded}}{\end{oldshaded}\end{leftbar_mod}}
+  \else \fi
+
+  \let\oldquote\quote
+  \renewenvironment{quote}{\begin{leftbar_mod}{gray}\begin{oldquote}}{\end{oldquote}\end{leftbar_mod}}
+
+include-after: \newpage{}
+---
